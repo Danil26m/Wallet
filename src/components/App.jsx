@@ -1,3 +1,7 @@
+import Login from "pages/Login/Login";
+import Register from "pages/Register/Register";
+import {  Route, Routes } from "react-router-dom";
+
 export const App = () => {
   return (
     <div
@@ -10,6 +14,11 @@ export const App = () => {
         color: '#010101'
       }}
     >
+      <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="login" element={<Login/>}/>
+        <Route path="register" element={<Register/>}/>
+      </Routes>
       
     </div>
   );
