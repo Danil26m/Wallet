@@ -1,8 +1,11 @@
 import Login from "pages/Login/Login";
 import Register from "pages/Register/Register";
+import { useSelector } from "react-redux";
 import {  Route, Routes } from "react-router-dom";
+import Exit from "./Exit";
 
 export const App = () => {
+  const loged = useSelector(state=> state.auth.token)
   return (
     <div
       style={{
@@ -15,7 +18,7 @@ export const App = () => {
       }}
     >
       <Routes>
-        <Route path="/" element={<Login/>}/>
+        <Route path="/" element={loged?<Exit/>:<Login/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="register" element={<Register/>}/>
       </Routes>
