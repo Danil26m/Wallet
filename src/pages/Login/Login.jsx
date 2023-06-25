@@ -15,7 +15,11 @@ export default function Login() {
   });
   return (
     <section>
-      <Formik
+      <section>
+        
+      </section>
+      <section>
+        <Formik
         validationSchema={validationSchema}
         initialValues={{
           email: '',
@@ -41,5 +45,7 @@ export default function Login() {
         <button type="button">Register</button>
       </NavLink>
     </section>
+      </section>
+      
   );
 }

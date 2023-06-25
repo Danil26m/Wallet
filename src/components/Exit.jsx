@@ -1,10 +1,11 @@
 import { useDispatch } from "react-redux"
-import { exit } from "redux/options/optionsAuthController";
+import { signOut } from "redux/auth/auth";
+// import { exit } from "redux/options/optionsAuthController";
 
 export default function Exit() {
     const dispatch = useDispatch();
     const handelClick = () =>{
-      return  dispatch(exit());
+      return  dispatch(signOut());
     }
     return(
         <div>awdawd
