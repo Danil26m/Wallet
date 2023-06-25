@@ -1,11 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signIn, signUp, exit } from 'redux/options/optionsAuthController';
+import { signIn, signUp} from 'redux/options/optionsAuthController';
 const auth = createSlice({
     name: 'auth',
     initialState: {
         user: {},
         token: '',
         isAuth: false,
+    },
+    reducers:{
+        signOut(state){
+            state.user = {};
+            state.token = null;
+            state.isAuth = false;
+        }
     },
     extraReducers:{
         [signIn.fulfilled](state,action){
@@ -17,14 +24,8 @@ const auth = createSlice({
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.isAuth = true;
-        },
-        [exit.fulfilled](state,action){
-            state.user = {};
-            state.token = null;
-            state.isAuth = false;
-            console.log(action.payload);
         }
-
     }
 })
+export const { signOut } = auth.actions;
 export default auth.reducer;
